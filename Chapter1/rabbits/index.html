@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll</title>
+    <style>
+      body {
+        background-color: black;
+        text-align: center;
+      }
+
+      img {
+        display: block;
+        padding-top: 50px;
+        margin: auto;
+        width: 150px;
+      }
+      
+      .button_container {
+        position: fixed;
+        top: 20px;
+       
+      }
+
+      .button_container {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      button {
+        margin: 4px;
+        color: black;
+        background-color: aqua;
+        border: 0px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="img_box">
+      <img class="rabbit" src="img/rabbit.png" />
+      <img class="rabbit" src="img/rabbit.png" />
+      <img class="rabbit" src="img/rabbit.png" />
+      <img class="rabbit" src="img/rabbit.png" />
+      <img class="rabbit" src="img/rabbit.png" />
+      <img class="rabbit" src="img/rabbit.png" />
+      <img class="rabbit" src="img/rabbit.png" />
+      <img class="rabbit carrot" src="img/carrot.png" />
+      <img class="rabbit" src="img/rabbit.png" />
+      <img class="rabbit" src="img/rabbit.png" />
+      <img class="rabbit" src="img/rabbit.png" />
+      <img class="rabbit" src="img/rabbit.png" />
+    </div>
+    <div class="button_container">
+      <button class="scrollBy">scroll by 100px</button>
+      <button class="scrollTo">scroll to 10px</button>
+      <button class="scrollInto">Find Carrot</button>
+    </div>
+  </body>
+    <script>
+      const carrot = document.querySelector(".carrot");
+      const scrollBy = document.querySelector(".scrollBy");
+      const scrollTo = document.querySelector(".scrollTo");
+      const scrollInto = document.querySelector(".scrollInto");
+
+      scrollBy.addEventListener("click", () => {
+        window.scrollBy(0, 100);
+      });
+      scrollTo.addEventListener("click", () => {
+        window.scrollTo(0, 50);
+      });
+      scrollInto.addEventListener("click", () => {
+        carrot.scrollIntoView();
+      });
+    </script>
+  </body>
+</html>
