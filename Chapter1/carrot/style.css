@@ -20,6 +20,7 @@ body {
   text-align: center;
   padding: 20px;
 }
+
 .game__timer {
   margin-top: 10px;
   border-radius: 5px;
@@ -29,6 +30,7 @@ body {
   font-weight: 700px;
   background-color: cornsilk;
   border: 5px solid black;
+  visibility: hidden;
 }
 
 .game__score {
@@ -41,6 +43,7 @@ body {
   width: 40px;
   height: 40px;
   background-color: cornflowerblue;
+  visibility: hidden;
 }
 
 .game__button:hover {
@@ -48,10 +51,9 @@ body {
 }
 
 .game__field {
+  position: relative;
   width: 100%;
   height: 100%;
-  background-color: blue;
-  opacity: 0.4;
 }
 
 .pop-up {
@@ -66,6 +68,10 @@ body {
   background-color: rgb(240, 148, 91);
   color: cyan;
   transform: translateY(-150%);
+}
+
+.pop-up-hide {
+  display: none;
 }
 
 .pop-up__refresh {
