@@ -70,13 +70,11 @@ body {
   transform: translateY(-150%);
 }
 
-.pop-up-hide {
+.pop-up__hide {
   display: none;
 }
 
 .pop-up__refresh {
   padding-top: 20px;
   margin-top: 50px;
-}
-.pop-up__message {
 }
