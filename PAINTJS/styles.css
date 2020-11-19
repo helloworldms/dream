@@ -58,3 +58,7 @@ body {
 #last {
   margin-right: 0px;
 }
+
+input {
+  margin-bottom: 40px;
+}
