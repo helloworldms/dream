@@ -4,8 +4,19 @@ const toDoList = document.querySelector(".js-toDoList");
 
 const USER_LI = "todoList";
 
-const toDos = [];
+let toDos = [];
 // 할일 입력 > 저장 > 리스트
+
+function deleteToDo(event) {
+  const btn = event.target;
+  const li = btn.parentNode;
+  toDoList.removeChild(li);
+  const cleanToDos = toDos.filter(function (toDo) {
+    return toDo.id !== parseInt(li.id);
+  });
+  toDos = cleanToDos;
+  saveToDOs();
+}
 
 function askTodo() {
   toDoForm.addEventListener("submit", handleSubmitTodo);
@@ -28,6 +39,7 @@ function paintTodo(text) {
   const span = document.createElement("span");
   const newId = toDos.length + 1;
   delBtn.innerText = "❌";
+  delBtn.addEventListener("click", deleteToDo);
   span.innerText = text;
 
   li.appendChild(span);
@@ -52,7 +64,7 @@ function loadToDos() {
     const parsedToDos = JSON.parse(loadedToDos);
     console.log(parsedToDos);
     parsedToDos.forEach(function (toDo) {
-      console.log(toDo.text);
+      paintTodo(toDo.text);
     });
   }
 }
