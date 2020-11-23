@@ -29,7 +29,7 @@ function saveName(text) {
 function paintGreeting(text) {
   form.classList.remove(SHOWING_ON);
   greeting.classList.add(SHOWING_ON);
-  greeting.innerHTML = `what the ${text}`;
+  greeting.innerHTML = `Hello ${text}`;
 }
 
 //값이 있으면 출력 아니믄 입력값 받기

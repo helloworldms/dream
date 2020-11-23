@@ -23,8 +23,11 @@ function deleteToDo(event) {
   const li = btn.parentNode;
   toDoList.removeChild(li);
   const cleanToDos = toDos.filter(function (toDo) {
-    return toDo.id !== parseInt(li.id);
+    return toDo.id !== JSON.parse(li.id);
+    console.log(toDo.id);
+    console.log(li.id);
   });
+
   toDos = cleanToDos;
   saveToDOs();
 }
@@ -49,7 +52,13 @@ function paintTodo(text) {
   const delBtn = document.createElement("button");
   const span = document.createElement("span");
   const newId = toDos.length + 1;
-  delBtn.innerText = "❌";
+  delBtn.innerHTML = `<?xml version="1.0" encoding="UTF-8"?>
+  <svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <title>Cancel</title>
+      <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+          <path d="M1.5,1 L10.3415527,9.84155273 L14.5,14 M14.5,1 L5.65844727,9.84155273 L1.5,14" id="Cancel" stroke="#FFFFFF" stroke-width="2"></path>
+      </g>
+  </svg>`;
   delBtn.addEventListener("click", deleteToDo);
   span.innerText = text;
 
