@@ -10,9 +10,12 @@ function getWeather(lat, lon) {
       return response.json();
     })
     .then(function (json) {
-      const temperature = json.main.temp;
+      const temperature = Math.floor(json.main.temp);
       const place = json.name;
-      weather.innerHTML = `${temperature} | ${place}`;
+      const { icon } = json.weather[0];
+      const description = json.weather[0].description;
+
+      weather.innerHTML = `${temperature} | ${place} | <img class="icon" src="icons/${icon}.png" width="20px"> | ${description}`;
       console.log(json);
     });
 }
@@ -23,6 +26,7 @@ function saveCoords(coordsObj) {
 
 function handleGeoSucces(position) {
   console.log(position);
+
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
 
