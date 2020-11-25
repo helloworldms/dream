@@ -78,10 +78,10 @@ function loadToDos() {
   const loadedToDos = localStorage.getItem(USER_LI);
   if (loadedToDos !== null) {
     const parsedToDos = JSON.parse(loadedToDos);
-    parsedToDos.forEach(function (toDo) {
-      paintTodo(toDo.text);
-    });
-  }
+    parsedToDos.forEach(toDo=> 
+      paintTodo(toDo.text)
+    );
+  
 }
 
 function init() {

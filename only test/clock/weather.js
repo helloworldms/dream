@@ -2,6 +2,9 @@ const COORDS = "coords";
 const weather = document.querySelector(".js-weather");
 const API_KEY = "50368fe18c176c179b45cc6e9e2d72e3";
 
+const array = [{ 1: 10, 2: 1, 3: 2 }, 2, 3, 2, 3, 4, 2, 3, 5];
+console.log(array[0]);
+
 function getWeather(lat, lon) {
   fetch(
     `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
@@ -12,11 +15,11 @@ function getWeather(lat, lon) {
     .then(function (json) {
       const temperature = Math.floor(json.main.temp);
       const place = json.name;
-      const { icon } = json.weather[0];
+      const icon = json.weather[0].icon;
       const description = json.weather[0].description;
 
       weather.innerHTML = `${temperature} | ${place} | <img class="icon" src="icons/${icon}.png" width="20px"> | ${description}`;
-      console.log(json);
+      console.log(json.weather);
     });
 }
 
