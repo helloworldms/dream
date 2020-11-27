@@ -7,17 +7,6 @@ const USER_LI = "todoList";
 let toDos = [];
 // 할일 입력 > 저장 > 리스트
 
-//
-const arraySparse = [1, 3, , 7];
-let numCallbackRuns = 0;
-
-arraySparse.forEach(function (element) {
-  console.log(element);
-  numCallbackRuns++;
-});
-
-console.log(numCallbackRuns);
-
 function deleteToDo(event) {
   const btn = event.target;
   const li = btn.parentNode;
@@ -78,10 +67,8 @@ function loadToDos() {
   const loadedToDos = localStorage.getItem(USER_LI);
   if (loadedToDos !== null) {
     const parsedToDos = JSON.parse(loadedToDos);
-    parsedToDos.forEach(toDo=> 
-      paintTodo(toDo.text)
-    );
-  
+    parsedToDos.forEach((toDo) => paintTodo(toDo.text));
+  }
 }
 
 function init() {
