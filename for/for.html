@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form name="selectForm">
+      <p>
+        <label for="musicTypes"
+          >Choose some music types, then click the button below:</label
+        >
+        <select id="musicTypes" name="musicTypes" multiple="multiple">
+          <option selected="selected">R&B</option>
+          <option>Jazz</option>
+          <option>Blues</option>
+          <option>New Age</option>
+          <option>Classical</option>
+          <option>Opera</option>
+        </select>
+      </p>
+      <p><input id="btn" type="button" value="How many are selected?" /></p>
+    </form>
+
+    <script>
+      var num = new Array(22, 5, 46, 6, 0, 1, 55);
+      function sum(array) {
+        var result = 0;
+
+        for (var i = 0; i < array.length; i++) result += array[i];
+        console.log(result);
+        console.log(array[i]);
+
+        return result;
+      }
+      var btn = document.getElementById("btn");
+      btn.addEventListener("click", function () {
+        alert(sum(num));
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <ul class="text"></ul>
+    </div>
+    <script>
+      const li = document.createElement("li");
+      const screen = document.querySelector(".text");
+      function printText() {
+        const screenwidth = window.screen.width;
+        const screenheignt = window.screen.height;
+        const outerWidth = window.outerWidth;
+        const outerHeight = window.outerHeight;
+        const innerWidth = window.innerWidth;
+        const innerHeight = window.innerHeight;
+
+        screen.appendChild(li);
+        li.innerHTML = `
+        window.screen: ${screenwidth},${screenheignt} </br>
+        window.outer: ${outerWidth},${outerHeight}</br>
+        window.inner: ${innerWidth},${innerHeight}</br>
+        document.documentElement.: ${document.documentElement.clientWidth},
+        ${document.documentElement.clientHeight}`;
+      }
+
+      window.addEventListener("resize", () => {
+        printText();
+      });
+      printText();
+    </script>
+  </body>
+</html>
