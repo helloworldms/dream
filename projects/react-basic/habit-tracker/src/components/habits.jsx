@@ -32,18 +32,22 @@ class Habits extends Component {
     this.setState({ habits });
   };
 
+  handleAdd = name =>{
+    this.props.onAdd(name)
+  }
+
   render() {
     return (
       <>
         <ul>
-          <HabitAddForm></HabitAddForm>
+          <HabitAddForm onAdd ={this.handleAdd}></HabitAddForm>
           {this.state.habits.map((habit) => (
             <Habit
               key={habit.id}
               habit={habit}
               onIncrement={this.handleIncrement}
               onDecrement={this.handleDecrement}
-              onDelete={this.handleDelete}
+              onDelete={(habit) =>{this.props.handleDelete(habit)}
             />
           ))}
         </ul>
