@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class Habit extends Component {
   handleIncrement = () => {
@@ -21,10 +21,7 @@ class Habit extends Component {
         <span className="habit-count">{count}</span>
         <button
           className="habit-button habit-increase"
-          onClick={function (e) {
-            e.preventDefault();
-            this.props.onIncrement(this.props.habit);
-          }.bind(this)}
+          onClick={this.handleIncrement}
         >
           <i className="fas fa-plus-square"></i>
         </button>
