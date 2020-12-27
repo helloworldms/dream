@@ -19,10 +19,11 @@
 }
 
 .button {
-  background-color: darkgray;
+  background-color: darkgrey;
+  outline: 0;
 }
 
 .buttonImg {
-  height: 60%;
-  padding: 0.5em 02em;
+  height: 100%;
+  padding: 0.5em 0.2em;
 }
