@@ -1,0 +1,17 @@
+{
+  "name": "apollo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "kim",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.19.2",
+    "convert-csv-to-json": "^1.3.0",
+    "express": "^4.17.1"
+  }
+}

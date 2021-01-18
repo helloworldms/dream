@@ -16,16 +16,15 @@ class Habits extends Component {
     const habits = [...this.state.habits];
     const index = habits.indexOf(habit);
     habits[index].count++;
-    this.setState({ habits });
+    this.setState({ habit });
   };
 
   handleDecreament = (habit) => {
     const habits = [...this.state.habits];
     const index = habits.indexOf(habit);
-    console.log(index);
-    const count = habits[index].count--;
+    const count = habits[index].count - 1;
     habits[index].count = count < 0 ? 0 : count;
-    this.setState({ habits });
+    this.setState({ habit });
   };
 
   handleDelete = (habit) => {
@@ -34,13 +33,9 @@ class Habits extends Component {
   };
 
   handleAdd = (name) => {
-    const habits = [
-      ...this.state.habits,
-      { id: Date.now(), name: name, count: 0 },
-    ];
+    const habits = [...this.state.habits, { id: Date.now(), name, count: 0 }];
     this.setState({ habits });
   };
-  // 특정 제외 ,추가 가능 필터
 
   handleReset = () => {
     const habits = this.state.habits.map((habit) => {
@@ -50,18 +45,17 @@ class Habits extends Component {
     this.setState({ habits });
   };
 
-  handleTotal() {
-    this.state.habits.filter(function (item) {
-      const count = (item.count > 0).length;
-
-      return count;
+  handleCount = () => {
+    this.state.habits.filter((item) => {
+      return (item.count > 0).length;
     });
-  }
-
+  };
   render() {
     return (
       <>
-        <Nav total={this.handleTotal}></Nav>
+        <Nav
+          totalCount={this.state.habits.filter((item) => item.count > 0).length}
+        ></Nav>
         <HabitsForm onAdd={this.handleAdd}></HabitsForm>
         <ul>
           {this.state.habits.map((habit) => (
@@ -70,7 +64,7 @@ class Habits extends Component {
               habit={habit}
               onIncreament={this.handleIncreament}
               onDecreament={this.handleDecreament}
-              onDelet={this.handleDelete}
+              onDelete={this.handleDelete}
             ></Habit>
           ))}
         </ul>

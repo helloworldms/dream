@@ -7,18 +7,19 @@ class Habit extends Component {
     const { name, count, id } = this.props.habit;
     return (
       <li>
-        <span>
+        <span key={id}>
           {name}
-          {id}
+          {count}
         </span>
-        <span>{count}</span>
         <button onClick={() => this.props.onIncreament(this.props.habit)}>
           +
         </button>
         <button onClick={() => this.props.onDecreament(this.props.habit)}>
           -
         </button>
-        <button onClick={() => this.props.onDelet(this.props.habit)}>x</button>
+        <button onClick={() => this.props.onDelete(this.props.habit)}>
+          del
+        </button>
       </li>
     );
   }

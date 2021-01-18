@@ -1,26 +1,13 @@
-import React from 'react';
-import styles from './video_item.module.css';
+import React from "react";
 
 const VideoItem = ({ video, video: { snippet }, onVideoClick, display }) => {
-  const displayType = display === 'list' ? styles.list : styles.grid;
+  // const displayType = display === "list" ? style.list : Style.grid;
+
   return (
-    <li
-      className={`${styles.container} ${displayType}`}
-      onClick={() => onVideoClick(video)}
-    >
-      <div className={styles.video}>
-        <img
-          className={styles.thumbnail}
-          src={snippet.thumbnails.medium.url}
-          alt="video thumbnail"
-        />
-        <div className={styles.metadata}>
-          <p className={styles.title}>{snippet.title}</p>
-          <p className={styles.channel}>{snippet.channelTitle}</p>
-        </div>
-      </div>
+    <li onClick={() => onVideoClick(video)}>
+      <h1>{snippet.title}</h1>;
+      <img src={snippet.thumbnails.medium.url} alt="img" />
     </li>
   );
 };
-
 export default VideoItem;

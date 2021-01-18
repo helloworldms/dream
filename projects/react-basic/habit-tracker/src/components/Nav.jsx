@@ -5,7 +5,7 @@ class Nav extends Component {
     return (
       <div>
         <span>Habit Tracker</span>
-        <span>{this.props.total}</span>
+        <span>{this.props.totalCount}</span>
       </div>
     );
   }

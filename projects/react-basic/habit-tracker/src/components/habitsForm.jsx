@@ -14,15 +14,8 @@ class HabitsForm extends Component {
     return (
       <>
         <form onSubmit={this.onSubmit}>
-          <input
-            ref={this.inputRef}
-            type="text"
-            name="name"
-            placeholder="text"
-          ></input>
-          <button type="submit" value="submit">
-            add
-          </button>
+          <input name="name" type="text" placeholder="text"></input>
+          <button type="submit">add</button>
         </form>
       </>
     );
